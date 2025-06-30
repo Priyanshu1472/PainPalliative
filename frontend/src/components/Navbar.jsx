@@ -16,7 +16,8 @@ const Navbar = () => {
     { name: 'home', path: '/' },
     { name: 'about', path: '/about' },
     { name: 'services', path: '/services' },
-    { name: 'testimonial', path: '/testimonial' }
+    { name: 'testimonial', path: '/testimonial' },
+    { name: 'FAQs', path: '/faqs' }
   ];
 
   // Handle scroll behavior - disabled on mobile when menu is open
