@@ -1,9 +1,14 @@
 import React from 'react';
-import { Phone, Mail} from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import '../styles/AboutMain.css'; // Assuming you have a CSS file for styling
 import docimg from '../assets/images/Gaurav_chanana.jpg'; // Adjust the path as necessary
 
 const AboutMain = () => {
+  const handleCallClick = () => {
+    // Handle call functionality - you can add phone call logic here
+    window.location.href = 'tel:+918800483843';
+  };
+
   return (
     <div className="about-container1">
       <div className="about-header">
@@ -13,10 +18,11 @@ const AboutMain = () => {
       <div className="content-wrapper">
         <div className="doctor-profile">
           <div className="profile-image">
-            <img 
-              src={docimg} 
-              alt="Dr Gaurav Chanana"
-            />
+            <img src={docimg} alt="Dr Gaurav Chanana" />
+            <button className="call-button" onClick={handleCallClick}>
+              <Phone size={16} />
+              Call
+            </button>
           </div>
           
           <div className="doctor-info">
@@ -25,11 +31,11 @@ const AboutMain = () => {
             
             <div className="contact-info">
               <div className="contact-item">
-                <Phone size={20} />
+                <Phone size={18} />
                 <span>(+91) 88004-83843</span>
               </div>
               <div className="contact-item">
-                <Mail size={20} />
+                <Mail size={18} />
                 <span>drgchanana@gmail.com</span>
               </div>
             </div>
@@ -40,7 +46,7 @@ const AboutMain = () => {
           <div className="section">
             <h3>Professional Profile</h3>
             <p>
-            With extensive training in anaesthesia and specialized expertise in pain management, this medical professional brings over a decade of experience across leading healthcare institutions. After completing advanced education and fellowships in pain care, their clinical journey has spanned renowned centers, including top-tier hospitals and research institutions. Their focus lies in delivering compassionate, evidence-based treatment to individuals suffering from chronic pain, combining interdisciplinary approaches with personalized care. A committed member of several national medical bodies, they remain actively involved in advancing patient care and clinical excellence in their field.
+              With extensive training in anaesthesia and specialized expertise in pain management, this medical professional brings over a decade of experience across leading healthcare institutions. After completing advanced education and fellowships in pain care, their clinical journey has spanned renowned centers, including top-tier hospitals and research institutions. Their focus lies in delivering compassionate, evidence-based treatment to individuals suffering from chronic pain, combining interdisciplinary approaches with personalized care. A committed member of several national medical bodies, they remain actively involved in advancing patient care and clinical excellence in their field.
             </p>
           </div>
           
