@@ -3,7 +3,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* Keyframe Animations */
@@ -238,16 +237,12 @@
   font-weight: bold;
   color: #2c3e50;
   margin-bottom: 0.5rem;
-  animation: slideInRight 0.8s ease-out forwards;
-  animation-delay: 1s;
 }
 
 .doctor-phone {
   font-size: 1.1rem;
   color: #4a90e2;
   font-weight: 500;
-  animation: slideInLeft 0.8s ease-out forwards;
-  animation-delay: 1s;
 }
 
 /* Text Content Styles */
