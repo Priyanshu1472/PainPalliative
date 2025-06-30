@@ -3,6 +3,90 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 96px;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Hero Section */
@@ -37,12 +121,14 @@
   font-weight: bold;
   margin-bottom: 1rem;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+  animation: slideInRight 0.8s ease-out forwards;
 }
 
 .hero-description {
   font-size: 1.6rem;
   line-height: 1.6;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 /* Footer */
@@ -128,6 +214,7 @@
 }
 
 .doctor-image-container {
+  opacity: 0;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -136,6 +223,8 @@
   border: 5px solid #4a90e2;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  animation: fadeInStagger 0.8s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .doctor-image {
@@ -149,12 +238,16 @@
   font-weight: bold;
   color: #2c3e50;
   margin-bottom: 0.5rem;
+  animation: slideInRight 0.8s ease-out forwards;
+  animation-delay: 1s;
 }
 
 .doctor-phone {
   font-size: 1.1rem;
   color: #4a90e2;
   font-weight: 500;
+  animation: slideInLeft 0.8s ease-out forwards;
+  animation-delay: 1s;
 }
 
 /* Text Content Styles */

@@ -1,4 +1,4 @@
-/* Minimalistic About Component Styles */
+/* Minimalistic About Component Styles with Loading Animations */
 
 .about-container1 {
   max-width: 1200px;
@@ -6,12 +6,99 @@
   padding: 4rem 1.5rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   min-height: max-content;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 96px;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Header */
 .about-header {
   text-align: center;
   margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .about-header h1 {
@@ -25,11 +112,12 @@
 .about-header h1::after {
   content: '';
   display: block;
-  width: 96px;
+  width: 0;
   height: 1px;
   background-color: #e5e5e5;
   margin: 0 auto;
   margin-top: 1rem;
+  animation: drawLine 1s ease-out 1s forwards;
 }
 
 /* Layout */
@@ -50,6 +138,8 @@
   top: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0f0f0;
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out 0.4s forwards;
 }
 
 .profile-image {
@@ -59,12 +149,22 @@
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid #f0f0f0;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: scaleIn 0.6s ease-out 0.8s forwards;
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.profile-image:hover img {
+  opacity: 0.3;
 }
 
 .doctor-info h2 {
@@ -73,6 +173,8 @@
   color: #1a1a1a;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.01em;
+  opacity: 0;
+  animation: fadeInStagger 0.6s ease-out 1s forwards;
 }
 
 .specialty {
@@ -80,6 +182,8 @@
   font-size: 1rem;
   font-weight: 400;
   margin: 0 0 2rem 0;
+  opacity: 0;
+  animation: fadeInStagger 0.6s ease-out 1.2s forwards;
 }
 
 /* Contact Info */
@@ -96,7 +200,13 @@
   gap: 0.75rem;
   color: #4b5563;
   font-size: 0.95rem;
+  opacity: 0;
+  animation: fadeInStagger 0.5s ease-out forwards;
 }
+
+.contact-item:nth-child(1) { animation-delay: 1.4s; }
+.contact-item:nth-child(2) { animation-delay: 1.6s; }
+.contact-item:nth-child(3) { animation-delay: 1.8s; }
 
 .contact-item svg {
   color: #6b7280;
@@ -110,6 +220,8 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  opacity: 0;
+  animation: slideInRight 0.8s ease-out 0.6s forwards;
 }
 
 .section {
@@ -118,7 +230,15 @@
   padding: 2.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0f0f0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInStagger 0.6s ease-out forwards;
 }
+
+.section:nth-child(1) { animation-delay: 0.8s; }
+.section:nth-child(2) { animation-delay: 1s; }
+.section:nth-child(3) { animation-delay: 1.2s; }
+.section:nth-child(4) { animation-delay: 1.4s; }
 
 .section h3 {
   font-size: 1.25rem;
@@ -160,7 +280,15 @@
   border-radius: 8px;
   border: 1px solid #f0f0f0;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInStagger 0.4s ease-out forwards;
 }
+
+.specialization-item:nth-child(1) { animation-delay: 1.6s; }
+.specialization-item:nth-child(2) { animation-delay: 1.7s; }
+.specialization-item:nth-child(3) { animation-delay: 1.8s; }
+.specialization-item:nth-child(4) { animation-delay: 1.9s; }
 
 .specialization-item:hover {
   background-color: #f1f5f9;
@@ -190,7 +318,13 @@
   text-align: center;
   flex: 1;
   padding: 1rem;
+  opacity: 0;
+  animation: bounceIn 0.6s ease-out forwards;
 }
+
+.stat-item:nth-child(1) { animation-delay: 2s; }
+.stat-item:nth-child(2) { animation-delay: 2.2s; }
+.stat-item:nth-child(3) { animation-delay: 2.4s; }
 
 .stat-number {
   font-size: 2rem;
@@ -213,6 +347,43 @@
   transition: color 0.3s ease;
 }
 
+.call-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.call-button:hover {
+  background-color: #1d4ed8;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.profile-image:hover .call-button {
+  opacity: 1;
+  visibility: visible;
+}
+
+.call-button svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .content-wrapper {
@@ -222,6 +393,11 @@
   
   .doctor-profile {
     position: static;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  }
+  
+  .details-section {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
   }
 }
 
@@ -302,15 +478,35 @@
   }
 }
 
-/* Accessibility */
+/* Accessibility - Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
+  .about-container1,
+  .about-header,
+  .doctor-profile,
+  .details-section,
+  .section,
+  .profile-image,
+  .doctor-info h2,
+  .specialty,
+  .contact-item,
   .specialization-item,
-  .stat-item .stat-number {
-    transition: none;
+  .stat-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .about-header h1::after {
+    width: 96px;
+    animation: none;
   }
   
   .specialization-item:hover {
     transform: none;
+  }
+  
+  .stat-item .stat-number {
+    transition: none;
   }
 }
 
@@ -318,64 +514,4 @@
 .doctor-profile:focus-within {
   outline: 2px solid #2563eb;
   outline-offset: 2px;
-}
-
-.profile-image {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 2rem;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid #f0f0f0;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-.profile-image:hover img {
-  opacity: 0.3;
-}
-
-.call-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.call-button:hover {
-  background-color: #1d4ed8;
-  transform: translate(-50%, -50%) scale(1.05);
-}
-
-.profile-image:hover .call-button {
-  opacity: 1;
-  visibility: visible;
-}
-
-.call-button svg {
-  width: 16px;
-  height: 16px;
 }
