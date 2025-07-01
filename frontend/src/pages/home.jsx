@@ -25,10 +25,9 @@ const Home = () => {
     toggleShowVideos
   } = useVideoSlider(videoData, isDesktop);
 
-  // Coordinates for Dr. Megha Pruthi's Clinic
   const clinicCoordinates = {
-    latitude: 28.4502461,
-    longitude: 77.0758843
+    latitude: 28.5273,
+    longitude: 77.2117
   };
 
   // Doctor information

@@ -147,6 +147,11 @@
   color: #16a34a;
 }
 
+/* Section with line wrapper - FIXED */
+.section-with-line {
+  position: relative;
+}
+
 /* Timeline Items */
 .timeline-list {
   list-style: none;
@@ -161,6 +166,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  min-height: 120px; /* Ensure consistent height for line calculations */
 }
 
 .timeline-item.visible {
@@ -178,7 +184,7 @@
   padding-left: 2rem;
 }
 
-/* Timeline Dots */
+/* Timeline Dots - FIXED positioning */
 .timeline-dot {
   position: absolute;
   width: 12px;
@@ -241,15 +247,15 @@
   border-left: 3px solid #16a34a;
 }
 
-/* Timeline Lines */
+/* Timeline Lines - FIXED positioning and structure */
 .timeline-line {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 0.5rem; /* Align with first dot */
   width: 2px;
   background: #f0f0f0;
   z-index: 1;
   border-radius: 1px;
+  height: 100%; /* Take full height of parent */
 }
 
 .education-line {
@@ -262,8 +268,11 @@
 
 .timeline-line-fill {
   width: 100%;
+  height: 0; /* Start with 0 height, controlled by JS */
   transition: height 0.6s ease;
   border-radius: 1px;
+  position: absolute;
+  top: 0;
 }
 
 .education-line-fill {
@@ -274,7 +283,7 @@
   background: #16a34a;
 }
 
-/* Responsive Design */
+/* Responsive Design - FIXED mobile layout */
 @media (max-width: 768px) {
   .timeline-container {
     padding: 3rem 1rem;
@@ -295,8 +304,11 @@
 
   .section-title {
     font-size: 1.25rem;
+    text-align: left;
+    margin-left: 3rem;
   }
 
+  /* Mobile timeline positioning - FIXED */
   .education-line,
   .experience-line {
     left: 1.5rem;
@@ -314,6 +326,11 @@
   .experience-dot {
     left: 0.9rem;
     right: auto;
+  }
+
+  /* Ensure proper line height calculation on mobile */
+  .section-with-line {
+    min-height: 480px; /* Approximate height for 4 items */
   }
 }
 
@@ -333,6 +350,11 @@
 
   .timeline-item {
     margin-bottom: 2rem;
+    min-height: 100px;
+  }
+
+  .section-with-line {
+    min-height: 400px; /* Adjusted for smaller spacing */
   }
 }
 
