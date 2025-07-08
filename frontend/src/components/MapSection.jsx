@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/MapSection.css"; // Import the CSS file for styling
 
 const MapSection = ({ latitude, longitude }) => {
   return (

@@ -57,7 +57,7 @@ const AnimatedBackground = () => {
     handleScroll();
 
     const healingElements = [];
-    const elementCount = 100;
+    const elementCount = 300;
 
     for (let i = 0; i < elementCount; i++) {
       healingElements.push({

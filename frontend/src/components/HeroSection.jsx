@@ -1,24 +1,44 @@
-import React,{useRef} from "react";
+import React from "react";
 import "../styles/HeroSection.css";
-import VariableProximity from "./VariableProximity"; // Import the VariableProximity component
+import img from "../assets/images/painpalliativelogo.png"; // Adjust the path as necessary
+
 const HeroSection = () => {
-  const containerRef = useRef(null);
   return (
-    <section className="hero-section">
-      <div className="overlay"></div>
+    <section className="hero">
+
       <div className="hero-content">
-        <h1 className="hero-title">In India</h1>
-        <p className="hero-description" ref={containerRef}>
-        <VariableProximity
-    label={"Pain management is often approached by general physicians, orthopaedicians, neurologists, oncologists, and anaesthesiologists. However, the growing burden of chronic and cancer-related pain calls for dedicated expertise and interdisciplinary care. Dr. Gaurav Chanana, Associate Director in Pain and Palliative Medicine at Max Super Speciality Hospital, brings over a decade of specialized experience in pain relief, interventional pain procedures, and palliative care. Trained at premier institutions including AIIMS and certified in both pain medicine and palliative care, Dr. Chanana has been instrumental in establishing integrative palliative services in the oncology departments of leading hospitals in Delhi-NCR. His work emphasizes evidence-based interventions tailored to individual needs—especially for patients living with cancer, advanced illness, or persistent pain. Together with the team offers comprehensive care that not only alleviates suffering but also enhances quality of life—a much-needed shift in India's evolving healthcare landscape."}
-    className={'variable-proximity-demo'}
-    fromFontVariationSettings="'wght' 400, 'opsz' 9"
-    toFontVariationSettings="'wght' 1000, 'opsz' 40"
-    containerRef={containerRef}
-    radius={90}
-    falloff='gaussian'
-  />
-        </p>
+        {/* Text Content */}
+        <div className="hero-text">
+          <h1>
+            Compassionate <span>Pain & Palliative Care</span>
+          </h1>
+          <p className="tagline">
+            Supporting patients and families with relief, dignity, and comfort through every stage of care.
+          </p>
+
+          <p className="bio">
+            Pain management is often approached by general physicians, orthopaedicians, neurologists,
+            oncologists, and anaesthesiologists. However, the growing burden of chronic and cancer-related
+            pain calls for dedicated expertise and interdisciplinary care. <strong>Dr. Gaurav Chanana</strong>, Associate Director
+            in Pain and Palliative Medicine at Max Super Speciality Hospital, brings over a decade of specialized
+            experience in pain relief, interventional pain procedures, and palliative care.
+            <br /><br />
+            Trained at premier institutions including <strong>AIIMS</strong> and certified in both pain medicine and palliative care,
+            Dr. Chanana has been instrumental in establishing integrative palliative services in the oncology
+            departments of leading hospitals in Delhi-NCR. His work emphasizes evidence-based interventions
+            tailored to individual needs—especially for patients living with cancer, advanced illness, or persistent pain.
+            Together with the team, he offers comprehensive care that not only alleviates suffering but also enhances
+            quality of life—a much-needed shift in India's evolving healthcare landscape.
+          </p>
+
+          <div className="hero-buttons">
+            <a href="#about" className="btn-primary">Learn More</a>
+            <a href="tel:+91XXXXXXXXXX" className="btn-call">📞 Call Now</a>
+          </div>
+        </div>
+        <div className="hero-image">
+          <img src={img} alt="Dr. Gaurav Chanana" />
+        </div>
       </div>
     </section>
   );

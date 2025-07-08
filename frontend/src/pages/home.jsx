@@ -4,6 +4,7 @@ import "../styles/home.css";
 import MedicalProfile from "../components/MedicalProfile";
 import docimg from "../assets/images/Gaurav_chanana.jpg"; // Adjust the path as necessary
 import VideoCarousel from "../components/VideoCarousel";
+import MapSection from "../components/MapSection";
 
 const home = () => {
   return (
@@ -11,6 +12,7 @@ const home = () => {
       <HeroSection />
       <MedicalProfile doctorImage={docimg} doctorName="Dr. Gaurav Chanana" doctorPhone="+91-8800483843​" />
       <VideoCarousel/>
+      <MapSection />
     </div>
   );
 }

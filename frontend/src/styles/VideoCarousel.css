@@ -65,7 +65,6 @@
     display: grid;
     gap: 20px;
     padding: 20px 0;
-    min-height: 300px;
   }
   
   .video-grid.grid-1 {

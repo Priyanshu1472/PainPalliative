@@ -1,5 +1,4 @@
 import React from "react";
-import AnimatedBackground from "./AnimatedBackground.jsx";
 import DoctorInfo from "./DoctorInfo.jsx";
 import '../styles/MedicalProfile.css'; // Import the CSS file for styling
 
@@ -12,8 +11,6 @@ const MedicalProfile = ({ doctorImage, doctorName, doctorPhone }) => {
         overflow: 'hidden'
       }}
     >
-      {/* Animated Background - Only in About Section */}
-      <AnimatedBackground />
       
       <div className="about-container">
         <div className="about-grid">
