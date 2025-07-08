@@ -1,8 +1,9 @@
 import React from "react";
 import AnimatedBackground from "./AnimatedBackground.jsx";
 import DoctorInfo from "./DoctorInfo.jsx";
+import '../styles/MedicalProfile.css'; // Import the CSS file for styling
 
-const AboutSection = ({ doctorImage, doctorName, doctorPhone }) => {
+const MedicalProfile = ({ doctorImage, doctorName, doctorPhone }) => {
   return (
     <section 
       className="about-section"
@@ -39,7 +40,7 @@ const AboutSection = ({ doctorImage, doctorName, doctorPhone }) => {
               best you can have for yourself and your family. Their experience at top most premier 
               institute AIIMS for pain and palliative medicine has exposed them to needs of cancer 
               patients journey. They have initiated many projects for Pain & Palliative care around 
-              Delhi NCR region. Dr Gaurav Chanana & Dr Megha Pruthi have established their pain & 
+              Delhi NCR region. Dr Gaurav Chanana has established their pain & 
               palliative practice with Max Super-specialty Hospital Saket & Max Super-specialty 
               Vaishali respectively for last few years.
             </p>
@@ -50,4 +51,4 @@ const AboutSection = ({ doctorImage, doctorName, doctorPhone }) => {
   );
 };
 
-export default AboutSection;
+export default MedicalProfile;

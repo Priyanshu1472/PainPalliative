@@ -16,7 +16,8 @@ const Footer = () => {
         </svg>
       ),
       content: 'Max Superspeciality Hospital Delhi NCR',
-      type: 'location'
+      type: 'location',
+      href: 'https://www.google.com/maps/dir//Dr+Gaurav+Chanana+Best+Cancer+Pain+Palliative+care+in+Delhi,+Pain+management+specialist,+Hospice+care,+Home+care+in+Delhi,+Room+no+5,+Cancer+Care+OPD+Max+Superspeciality+Hospital,+Saket+Institutional+Area,+Saket,+New+Delhi,+Delhi+110017/@28.527726,77.2120223,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x390ce1f687c428df:0x5940b739a47aa797!2m2!1d77.2120223!2d28.527726?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D'
     },
     {
       icon: (

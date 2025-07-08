@@ -1,0 +1,483 @@
+/* VideoCarousel.css */
+
+/* Root variables for consistent theming */
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --youtube-color: #ff0000;
+    --instagram-color: #e4405f;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --background-white: #fff;
+    --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-dark: 0 12px 30px rgba(0, 10,10, 0.2);
+    --border-radius: 12px;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  /* Main container */
+  .video-carousel-container {
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+  }
+  
+  /* Header section */
+  .carousel-header {
+    text-align: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .carousel-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--primary-color), #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .carousel-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  
+  /* Carousel wrapper */
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    padding: 20px;
+  }
+  
+  /* Video grid */
+  .video-grid {
+    display: grid;
+    gap: 20px;
+    padding: 20px 0;
+    min-height: 300px;
+  }
+  
+  .video-grid.grid-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-grid.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .video-grid.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Video card */
+  .video-card {
+    background: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-dark);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .video-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .video-card:hover::before {
+    left: 100%;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  /* Animation classes */
+  .video-card.slide-in {
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .video-card.slide-out {
+    animation: slideOutDown 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .video-card.fade-in {
+    animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  /* Card content */
+  .video-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .video-card-body {
+    flex: 1;
+  }
+  
+  .video-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+  
+  .video-card:hover .video-title {
+    color: var(--primary-color);
+  }
+  
+  .video-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 20px;
+    transition: var(--transition-bounce);
+  }
+  
+  .platform-badge:hover {
+    transform: scale(1.05);
+  }
+  
+  .platform-badge.youtube {
+    background: linear-gradient(135deg, var(--youtube-color), #ff4444);
+  }
+  
+  .platform-badge.instagram {
+    background: linear-gradient(135deg, var(--instagram-color), #f77737);
+  }
+  
+  .video-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--primary-color), #00c6ff);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .video-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .video-link:hover::before {
+    left: 100%;
+  }
+  
+  .video-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Navigation controls */
+  .carousel-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .carousel-dots {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: var(--transition-bounce);
+    outline: none;
+  }
+  
+  .dot:hover {
+    background-color: #999;
+    transform: scale(1.2);
+  }
+  
+  .dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.3);
+  }
+  
+  .progress-bar {
+    width: 200px;
+    height: 4px;
+    background-color: #eee;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), #00c6ff);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    position: relative;
+  }
+  
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5));
+    animation: progressShine 2s ease-in-out infinite;
+  }
+  
+  .carousel-info {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  /* Keyframe animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px) rotateX(10deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+  }
+  
+  @keyframes slideOutDown {
+    from {
+      opacity: 1;
+      transform: translateY(0) rotateX(0deg);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-30px) rotateX(-10deg);
+    }
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8) rotateY(10deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) rotateY(0deg);
+    }
+  }
+  
+  @keyframes progressShine {
+    0%, 100% {
+      transform: translateX(-20px);
+    }
+    50% {
+      transform: translateX(200px);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 1024px) {
+    .video-grid.grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .carousel-title {
+      font-size: 1.8rem;
+    }
+    
+    .video-carousel-container {
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .video-grid.grid-2,
+    .video-grid.grid-3 {
+      grid-template-columns: 1fr;
+    }
+    
+    .carousel-title {
+      font-size: 1.6rem;
+    }
+    
+    .carousel-subtitle {
+      font-size: 1rem;
+    }
+    
+    .video-card {
+      padding: 15px;
+    }
+    
+    .video-title {
+      font-size: 1.1rem;
+    }
+    
+    .progress-bar {
+      width: 150px;
+    }
+    
+    .carousel-wrapper {
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .video-carousel-container {
+      padding: 10px;
+    }
+    
+    .carousel-title {
+      font-size: 1.4rem;
+    }
+    
+    .video-card {
+      padding: 12px;
+    }
+    
+    .video-link {
+      padding: 10px 16px;
+      font-size: 0.85rem;
+    }
+    
+    .platform-badge {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+    }
+    
+    .progress-bar {
+      width: 120px;
+    }
+    
+    .carousel-controls {
+      gap: 15px;
+    }
+  }
+  
+  /* Loading animation */
+  .loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Accessibility improvements */
+  .video-card:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+  
+  .dot:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+  
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }

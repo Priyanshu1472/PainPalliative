@@ -46,7 +46,13 @@ const AboutMain = () => {
           <div className="section">
             <h3>Professional Profile</h3>
             <p>
-              With extensive training in anaesthesia and specialized expertise in pain management, this medical professional brings over a decade of experience across leading healthcare institutions. After completing advanced education and fellowships in pain care, their clinical journey has spanned renowned centers, including top-tier hospitals and research institutions. Their focus lies in delivering compassionate, evidence-based treatment to individuals suffering from chronic pain, combining interdisciplinary approaches with personalized care. A committed member of several national medical bodies, they remain actively involved in advancing patient care and clinical excellence in their field.
+              With extensive training in anaesthesiology and specialized expertise in pain management, Dr. Gaurav Chanana brings over a decade of clinical experience across some of India’s leading healthcare institutions. Following advanced education and fellowships in pain medicine and palliative care, Dr. Chanana has built a distinguished career through his work at premier centers including the All India Institute of Medical Sciences (AIIMS) and Max Super Speciality Hospital.
+              </p>
+              <p> 
+              His clinical practice focuses on delivering compassionate, evidence-based care to individuals suffering from chronic and cancer-related pain. He is known for integrating interventional techniques with holistic, patient-centered approaches tailored to each individual's needs. A recognized leader in his field, Dr. Chanana is actively engaged in medical education, healthcare quality improvement, and advocacy for palliative care in India.
+              </p>
+              <p>
+              As a committed member of national medical associations—including the Indian Society for Study of Pain and the Indian Association of Palliative Care—he continues to contribute to the advancement of clinical standards and collaborative care models in pain and palliative medicine.
             </p>
           </div>
           
