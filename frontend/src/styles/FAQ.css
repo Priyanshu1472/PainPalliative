@@ -96,9 +96,9 @@
   }
   
   .faq-tab.active {
-    background: #007bff;
+    background: #4A0A69;
     color: white;
-    border-color: #007bff;
+    border-color: #9C51C2;
   }
   
   .faq-results-info {
@@ -143,7 +143,7 @@
   }
   
   .faq-icon {
-    color: #007bff;
+    color: #9C51C2;
     display: flex;
     align-items: center;
     flex-shrink: 0;

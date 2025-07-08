@@ -61,7 +61,7 @@
 }
 
 .nav-button.active {
-  background-color: #2563eb;
+  background-color: #4A0A69;
   color: white;
 }
 
@@ -150,11 +150,11 @@
 }
 
 .mobile-nav-button:hover {
-  color: #2563eb;
+  color: #4A0A69;
 }
 
 .mobile-nav-button.active {
-  color: #2563eb;
+  color: #4A0A69;
   font-weight: bold;
 }
 

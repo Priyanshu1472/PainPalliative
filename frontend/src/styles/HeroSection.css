@@ -1,7 +1,7 @@
 /* HeroSection.css */
 
 .hero {
-  background: linear-gradient(to bottom, #e0f2ff, #ffffff);
+  background: linear-gradient(to bottom, #f4e0ff, #ffffff);
   padding: 60px 20px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .hero-text h1 span {
-  color: #2563eb;
+  color: #671f8b;
 }
 
 .hero-text .tagline {
@@ -51,7 +51,7 @@
 }
 
 .btn-primary {
-  background-color: #2563eb;
+  background-color: #4A0A69;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -61,11 +61,11 @@
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
+  background-color: #9c51c2;
 }
 
 .btn-call {
-  color: #2563eb;
+  color: #4A0A69;
   text-decoration: none;
   font-weight: 500;
 }

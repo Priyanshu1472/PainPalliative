@@ -31,9 +31,8 @@
     border-radius: 50%;
     margin: 0 auto 2rem;
     overflow: hidden;
-    border: 5px solid #4a90e2;
+    border: 5px solid #4A0A69;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     animation: fadeInStagger 0.8s ease-out forwards;
     animation-delay: 1s;
   }
@@ -53,7 +52,7 @@
   
   .doctor-phone {
     font-size: 1.1rem;
-    color: #4a90e2;
+    color: #4A0A69;
     font-weight: 500;
   }
   
