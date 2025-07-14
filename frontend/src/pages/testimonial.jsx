@@ -70,7 +70,7 @@ const Testimonial = () => {
         <div className="header-section">
           <h1 className="main-title">
             Our trusted{' '}
-            <span className="highlight-text">Clients</span>
+            <span className="highlight-text">Patients</span>
           </h1>
           <p className="subtitle">
           We thank our patients & their caregivers who took time and shared a feedback it helps us keep working with the same zeal & enthusiasm

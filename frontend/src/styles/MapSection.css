@@ -1,4 +1,13 @@
 /* MapSection.css */
+h2::after {
+  content: '';
+  display: block;
+  width: 96px;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
 
 .map-subsection {
     padding: 60px 20px;
@@ -7,10 +16,11 @@
   }
   
   .subsection-title {
-    font-size: 2rem;
-    color: #1f2937;
-    font-weight: bold;
-    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1a1a1a;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.025em;
   }
   
   .map-container {

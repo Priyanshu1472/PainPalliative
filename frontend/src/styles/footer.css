@@ -50,7 +50,6 @@
   }
   
   .footer-section--clickable:hover .footer-section__icon {
-    color: #944BBA;
     transform: scale(1.1);
   }
   

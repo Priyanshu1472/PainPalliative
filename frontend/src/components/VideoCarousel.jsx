@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, ExternalLink } from 'lucide-react';
-import '../styles/VideoCarousel.css';
+import '../styles/VideoCarousel.css'; // Import the CSS file
 
 // Video data configuration
 const videoData = [
@@ -97,8 +97,18 @@ const VideoCarousel = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [videosPerSlide, setVideosPerSlide] = useState(3);
   const [animationClass, setAnimationClass] = useState('fade-in');
-  const intervalRef = useRef(null);
   const animationQueue = useRef(['slide-in', 'fade-in']);
+  
+  // Touch gesture states
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+  
+  const carouselRef = useRef(null);
+  
+  // Minimum swipe distance to trigger navigation
+  const minSwipeDistance = 50;
 
   // Handle responsive videos per slide
   useEffect(() => {
@@ -118,37 +128,6 @@ const VideoCarousel = () => {
   }, []);
 
   const totalSlides = Math.ceil(videoData.length / videosPerSlide);
-
-  // Auto-rotate functionality with improved animation
-  useEffect(() => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  
-    intervalRef.current = setInterval(() => {
-      setIsTransitioning(true);
-      
-      const nextAnimation = animationQueue.current[
-        Math.floor(Math.random() * animationQueue.current.length)
-      ];
-      setAnimationClass(nextAnimation);
-  
-      setCurrentIndex((prevIndex) => {
-        const nextIndex = prevIndex + 1;
-        return nextIndex >= totalSlides ? 0 : nextIndex;
-      });
-  
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 600);
-    }, 4000);
-  
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [totalSlides]);
   
   const handleSlideChange = (indexOrFunction) => {
     if (isTransitioning) return;
@@ -172,24 +151,57 @@ const VideoCarousel = () => {
   const goToSlide = (index) => {
     if (isTransitioning || index === currentIndex) return;
     
-    // Reset auto-rotation timer when user interacts
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      setTimeout(() => {
-        if (intervalRef.current) {
-          clearInterval(intervalRef.current);
-        }
-        
-        intervalRef.current = setInterval(() => {
-          handleSlideChange((prevIndex) => {
-            const nextIndex = prevIndex + 1;
-            return nextIndex >= totalSlides ? 0 : nextIndex;
-          });
-        }, 4000);
-      }, 1000);
+    handleSlideChange(index);
+  };
+
+  // Touch event handlers
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!touchStart || isTransitioning) return;
+    
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = touchStart - currentTouch;
+    
+    // Limit drag offset for visual feedback
+    const maxOffset = 100;
+    const limitedOffset = Math.max(-maxOffset, Math.min(maxOffset, diff));
+    setDragOffset(limitedOffset);
+    
+    setTouchEnd(currentTouch);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd || isTransitioning) {
+      setIsDragging(false);
+      setDragOffset(0);
+      return;
     }
     
-    handleSlideChange(index);
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      // Swipe left - go to next slide
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < totalSlides) {
+        goToSlide(nextIndex);
+      }
+    } else if (isRightSwipe) {
+      // Swipe right - go to previous slide
+      const prevIndex = currentIndex - 1;
+      if (prevIndex >= 0) {
+        goToSlide(prevIndex);
+      }
+    }
+    
+    setIsDragging(false);
+    setDragOffset(0);
   };
 
   const formatDate = (dateString) => {
@@ -213,6 +225,7 @@ const VideoCarousel = () => {
 
   return (
     <div className="video-carousel-container">
+      
       <div className="carousel-header">
         <h2 className="carousel-title">
           Featured Videos
@@ -223,7 +236,16 @@ const VideoCarousel = () => {
       </div>
 
       <div className="carousel-wrapper">
-        <div className={getGridClass()}>
+        <div 
+          ref={carouselRef}
+          className={`${getGridClass()} ${isDragging ? 'dragging' : ''}`}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            transform: isDragging ? `translateX(${-dragOffset}px)` : 'translateX(0)',
+          }}
+        >
           {getCurrentVideos().map((video, index) => (
             <div 
               key={`${currentIndex}-${index}`}
@@ -289,10 +311,6 @@ const VideoCarousel = () => {
             />
           </div>
         </div>
-      </div>
-
-      <div className="carousel-info">
-        Showing {currentIndex * videosPerSlide + 1}-{Math.min((currentIndex + 1) * videosPerSlide, videoData.length)} of {videoData.length} videos
       </div>
     </div>
   );

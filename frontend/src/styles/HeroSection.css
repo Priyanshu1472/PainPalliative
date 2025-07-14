@@ -51,7 +51,7 @@
 }
 
 .btn-primary {
-  background-color: #4A0A69;
+  background: linear-gradient(135deg, var(--primary-color), #9c51c2);
   color: white;
   padding: 12px 24px;
   border-radius: 8px;

@@ -1,0 +1,314 @@
+/* FloatingButton.css */
+.floating-button-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+  }
+  
+  .floating-button {
+    animation: bounce 2s infinite;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    text-decoration: none;
+  }
+  
+  .floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  }
+  
+  .floating-button:active {
+    transform: scale(0.95);
+  }
+  
+  .floating-button-tooltip {
+    position: absolute;
+    bottom: 5rem;
+    right: 0;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(31, 41, 55, 0.9);
+    color: white;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  
+  .floating-button-container:hover .floating-button-tooltip {
+    opacity: 1;
+  }
+  
+  /* Bounce Animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* ===============================
+     RESPONSIVE BREAKPOINTS
+     =============================== */
+  
+  /* Small Mobile Devices (320px - 480px) */
+  @media only screen and (max-width: 480px) {
+    .floating-button-container {
+      bottom: 1rem;
+      right: 1rem;
+    }
+    
+    .floating-button {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    
+    .floating-button svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      bottom: 4.5rem;
+    }
+  }
+  
+  /* Large Mobile Devices (481px - 768px) */
+  @media only screen and (min-width: 481px) and (max-width: 768px) {
+    .floating-button-container {
+      bottom: 1.25rem;
+      right: 1.25rem;
+    }
+    
+    .floating-button {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+    
+    .floating-button svg {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 0.8rem;
+      bottom: 4.75rem;
+    }
+  }
+  
+  /* Tablets (769px - 1024px) */
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .floating-button-container {
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+    
+    .floating-button {
+      width: 4rem;
+      height: 4rem;
+    }
+    
+    .floating-button svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  /* Large Tablets / Small Laptops (1025px - 1200px) */
+  @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    .floating-button-container {
+      bottom: 1.75rem;
+      right: 1.75rem;
+    }
+    
+    .floating-button {
+      width: 4.25rem;
+      height: 4.25rem;
+    }
+    
+    .floating-button svg {
+      width: 26px;
+      height: 26px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 0.9rem;
+      bottom: 5.25rem;
+    }
+  }
+  
+  /* Laptops / Desktops (1201px - 1600px) */
+  @media only screen and (min-width: 1201px) and (max-width: 1600px) {
+    .floating-button-container {
+      bottom: 2rem;
+      right: 2rem;
+    }
+    
+    .floating-button {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+    
+    .floating-button svg {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 1rem;
+      bottom: 5.5rem;
+    }
+  }
+  
+  /* Large Desktops (1601px - 1920px) */
+  @media only screen and (min-width: 1601px) and (max-width: 1920px) {
+    .floating-button-container {
+      bottom: 2.25rem;
+      right: 2.25rem;
+    }
+    
+    .floating-button {
+      width: 5rem;
+      height: 5rem;
+    }
+    
+    .floating-button svg {
+      width: 30px;
+      height: 30px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 1.1rem;
+      bottom: 6rem;
+    }
+  }
+  
+  /* Ultra-Wide / 4K Displays (1921px+) */
+  @media only screen and (min-width: 1921px) {
+    .floating-button-container {
+      bottom: 2.5rem;
+      right: 2.5rem;
+    }
+    
+    .floating-button {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
+    
+    .floating-button svg {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 1.2rem;
+      bottom: 6.5rem;
+    }
+  }
+  
+  /* Portrait Orientation Adjustments */
+  @media only screen and (orientation: portrait) {
+    .floating-button-container {
+      bottom: 2rem;
+    }
+    
+    .floating-button-tooltip {
+      right: -50%;
+      transform: translateX(50%);
+    }
+  }
+  
+  /* Landscape Orientation Adjustments */
+  @media only screen and (orientation: landscape) and (max-height: 600px) {
+    .floating-button-container {
+      bottom: 1rem;
+      right: 1rem;
+    }
+    
+    .floating-button {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    
+    .floating-button svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .floating-button-tooltip {
+      font-size: 0.75rem;
+      bottom: 4.5rem;
+    }
+  }
+  
+  /* Touch Device Optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    .floating-button {
+      animation: none; /* Disable bounce on touch devices to save battery */
+    }
+    
+    .floating-button:hover {
+      transform: none; /* Remove hover effects on touch devices */
+    }
+    
+    .floating-button:active {
+      transform: scale(0.9);
+    }
+    
+    .floating-button-tooltip {
+      display: none; /* Hide tooltip on touch devices */
+    }
+  }
+  
+  /* High DPI / Retina Displays */
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min-resolution: 192dpi),
+         only screen and (min-resolution: 2dppx) {
+    .floating-button {
+      box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15), 0 4px 8px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .floating-button:hover {
+      box-shadow: 0 16px 35px -8px rgba(0, 0, 0, 0.2), 0 8px 15px -5px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  /* Reduced Motion Preference */
+  @media (prefers-reduced-motion: reduce) {
+    .floating-button {
+      animation: none;
+      transition: none;
+    }
+    
+    .floating-button:hover {
+      transform: none;
+    }
+    
+    .floating-button:active {
+      transform: scale(0.95);
+    }
+    
+    .floating-button-tooltip {
+      transition: none;
+    }
+  }
